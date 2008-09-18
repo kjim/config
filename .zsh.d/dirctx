@@ -24,7 +24,7 @@ function dirctx () {
     if [ $GIT_AVAILABLE ]; then
         __status=`__git_real status . 2>&1`
         case "$__status" in
-            error*)
+            error*|fatal*)
                 ;;
             *)
                 __git_real branch | grep '^\*' | sed -e 's/\* //' | xargs echo -n 'git:'
